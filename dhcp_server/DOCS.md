@@ -4,7 +4,7 @@
 
 Follow these steps to get the add-on installed on your system:
 
-1. Navigate in your Home Assistant frontend to **Supervisor** -> **Add-on Store**.
+1. Navigate in your Home Assistant frontend to **Settings** -> **Add-ons** -> **Add-on store**.
 2. Find the "DHCP server" add-on and click it.
 3. Click on the "INSTALL" button.
 4. Modify configuration as needed
@@ -38,7 +38,7 @@ networks:
     range_end: 192.168.1.200
     broadcast: 192.168.1.255
     gateway: 192.168.1.1
-    interface: eth0
+    interface: end0
 hosts:
   - name: webcam_xy
     mac: aa:bb:ee:cc
@@ -110,7 +110,7 @@ This is usually the IP address of your router.
 
 #### Option: `networks.interface`
 
-The network interface to listen to for this network, e.g., `eth0`.
+The network interface to listen to for this network, e.g., `end0`.
 
 ### Option: `hosts` (optional)
 
@@ -146,6 +146,6 @@ In case you've found a bug, please [open an issue on our GitHub][issue].
 
 [discord]: https://discord.gg/c5DvZ4e
 [forum]: https://community.home-assistant.io
-[issue]: https://github.com/home-assistant/hassio-addons/issues
+[issue]: https://github.com/home-assistant/addons/issues
 [reddit]: https://reddit.com/r/homeassistant
 [repository]: https://github.com/hassio-addons/repository

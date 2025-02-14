@@ -1,4 +1,6 @@
 #!/usr/bin/with-contenv bashio
+# vim: ft=bash
+# shellcheck shell=bash
 # ==============================================================================
 # Send MQTT discovery information to Home Assistant and service information
 # to the Supervisor (for other add-ons).
@@ -8,7 +10,7 @@ declare config
 declare discovery_password
 declare service_password
 
-# Wait for mosquitti to start before continuing
+# Wait for mosquitto to start before continuing
 bashio::net.wait_for 1883
 
 # Read the existing values

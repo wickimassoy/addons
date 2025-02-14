@@ -5,7 +5,7 @@
 Follow these steps to get the add-on installed on your system:
 
 1. This add-on is only visible to "Advanced Mode" users. To enable advanced mode, go to **Profile** -> and turn on **Advanced Mode**.
-2. Navigate in your Home Assistant frontend to **Supervisor** -> **Add-on Store**.
+2. Navigate in your Home Assistant frontend to **Settings** -> **Add-ons** -> **Add-on store**.
 3. Find the "Terminal & SSH" add-on and click it.
 4. Click on the "INSTALL" button.
 
@@ -19,7 +19,7 @@ This add-on adds two main features to your Home Assistant installation:
 Regardless of how you connect (using the web terminal or using an SSH client), you end up in this add-on's container. The Home Assistant configuration
 directory is located on the path `/config`.
 
-This add-on comes bundled with [The Home Assistant CLI](https://www.home-assistant.io/hassio/commandline/). Try it out using:
+This add-on comes bundled with [The Home Assistant CLI](https://www.home-assistant.io/common-tasks/os#home-assistant-via-the-command-line). Try it out using:
 
 ```bash
 ha help
@@ -28,6 +28,14 @@ ha help
 ### The Web Terminal
 
 You can access the web terminal by clicking the "Open Web UI" button on this add-on's Info tab. If you set the "Show in sidebar" setting (found on the same Info tab) to "on", a shortcut is added to the sidebar allowing you to access the web terminal quickly.
+
+To copy text from the Web UI:
+1. Hold down the SHIFT key.
+2. Select the text you want to copy using your mouse.
+3. On releasing the left mouse button, the text gets copied to your system clipboard.
+
+To paste text into the Web UI:
+1. Press SHIFT + INSERT.
 
 ### SSH Server Connection
 
@@ -39,6 +47,8 @@ Remote SSH access from the network is disabled by default (See Network below).  
 You can then connect to the port specified, using the username `root`. Please note that enabling the SSH Server potentially makes your Home Assistant system less secure, as it might enable anyone on the internet to try to access your system. The security of your system also depends on your network set up, router settings, use of firewalls, etc. As a general recommendation, you should not activate this part of the add-on unless you understand the ramifications.
 
 If you enable connecting to the SSH Server using an SSH client, you are strongly recommended to use private/public keys to log in. As long as you keep the private part of your key safe, this makes your system much harder to break into. Using passwords is, therefore, generally considered a less secure mechanism. To generate private/public SSH keys, follow the [instructions for Windows][keygen-windows] and [these for other platforms][keygen].
+
+**Note**: While following the instructions above, select ECDSA as `Type of key to generate` instead of RSA. RSA is no longer supported.
 
 Enabling login via password will disable key-based login. You can not run both variants at the same time.
 
@@ -75,7 +85,7 @@ Some SSH server options.
 
 #### Option `tcp_forwarding`
 
-Specifies whether TCP forwarding is permitted or not.
+Specifies whether TCP port forwarding (-L -R etc.) is permitted or not.
 
 **Note**: _Enabling this option lowers the security of your SSH server! Nevertheless, this warning is debatable._
 
@@ -104,7 +114,7 @@ In case you've found a bug, please [open an issue on our GitHub][issue].
 
 [discord]: https://discord.gg/c5DvZ4e
 [forum]: https://community.home-assistant.io
-[issue]: https://github.com/home-assistant/hassio-addons/issues
+[issue]: https://github.com/home-assistant/addons/issues
 [keygen-windows]: https://www.digitalocean.com/community/tutorials/how-to-create-ssh-keys-with-putty-to-connect-to-a-vps
-[keygen]: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+[keygen]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 [reddit]: https://reddit.com/r/homeassistant

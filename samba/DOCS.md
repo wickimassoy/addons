@@ -4,7 +4,7 @@
 
 Follow these steps to get the add-on installed on your system:
 
-1. Navigate in your Home Assistant frontend to **Supervisor** -> **Add-on Store**.
+1. Navigate in your Home Assistant frontend to **Settings** -> **Add-ons** -> **Add-on store**.
 2. Find the "Samba share" add-on and click it.
 3. Click on the "INSTALL" button.
 
@@ -12,9 +12,7 @@ Follow these steps to get the add-on installed on your system:
 
 1. In the configuration section, set a username and password.
    You can specify any username and password; these are not related in any way to the login credentials you use to log in to Home Assistant or to log in to the computer with which you will use Samba share.
-2. Save the configuration.
-3. Start the add-on.
-4. Check the add-on log output to see the result.
+2. Review the enabled shares. Disable any you do not plan to use. Shares can be re-enabled later if needed.
 
 ## Connection
 
@@ -25,6 +23,7 @@ This addon exposes the following directories over smb (samba):
 Directory | Description
 -- | --
 `addons` | This is for your local add-ons.
+`addon_configs` | This is for the configuration files of your add-ons.
 `backup` | This is for your backups.
 `config` | This is for your Home Assistant configuration.
 `media` | This is for local media files.
@@ -39,11 +38,21 @@ Add-on configuration:
 workgroup: WORKGROUP
 username: homeassistant
 password: YOUR_PASSWORD
+enabled_shares:
+  - addons
+  - addon_configs
+  - backup
+  - config
+  - media
+  - share
+  - ssl
 allow_hosts:
   - 10.0.0.0/8
   - 172.16.0.0/12
   - 192.168.0.0/16
+  - 169.254.0.0/16
   - fe80::/10
+  - fc00::/7
 veto_files:
   - "._*"
   - ".DS_Store"
@@ -62,6 +71,10 @@ The username you would like to use to authenticate with the Samba server.
 ### Option: `password` (required)
 
 The password that goes with the username configured for authentication.
+
+### Option: `enabled_shares` (required)
+
+List of Samba shares that will be accessible. Any shares removed or commented out of the list will not be accessible.
 
 ### Option: `allow_hosts` (required)
 
@@ -96,6 +109,6 @@ In case you've found a bug, please [open an issue on our GitHub][issue].
 
 [discord]: https://discord.gg/c5DvZ4e
 [forum]: https://community.home-assistant.io
-[issue]: https://github.com/home-assistant/hassio-addons/issues
+[issue]: https://github.com/home-assistant/addons/issues
 [reddit]: https://reddit.com/r/homeassistant
 [repository]: https://github.com/hassio-addons/repository

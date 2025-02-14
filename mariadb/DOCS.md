@@ -4,7 +4,7 @@
 
 Follow these steps to get the add-on installed on your system:
 
-1. Navigate in your Home Assistant frontend to **Supervisor** -> **Add-on Store**.
+1. Navigate in your Home Assistant frontend to **Settings** -> **Add-ons** -> **Add-on store**.
 2. Find the "MariaDB" add-on and click it.
 3. Click on the "INSTALL" button.
 
@@ -13,7 +13,7 @@ Follow these steps to get the add-on installed on your system:
 1. Set the `logins` -> `password` field to something strong and unique.
 2. Start the add-on.
 3. Check the add-on log output to see the result.
-4. Add `recorder` component to your Home Assistant configuration.
+4. Add the `recorder` integration to your Home Assistant configuration.
 
 ## Add-on Configuration
 
@@ -74,6 +74,13 @@ If omitted, grants `ALL PRIVILEGES` to the user. Restricting privileges of the u
 that Home Assistant uses is not recommended but if you want to allow other applications
 to view recorder data should create a user limited to read-only access on the database.
 
+### Option: `mariadb_server_args` (optional)
+
+Some users have experienced [errors][migration-issues] during Home Assistant schema updates on large databases.
+Defining the recommended parameters can help if there is RAM available.
+
+Example: `--innodb_buffer_pool_size=512M`
+
 ## Home Assistant Configuration
 
 MariaDB will be used by the `recorder` and `history` components within Home Assistant. For more information about setting this up, see the [recorder integration][mariadb-ha-recorder] documentation for Home Assistant.
@@ -97,14 +104,15 @@ You have several options to get them answered:
 
 In case you've found a bug, please [open an issue on our GitHub][issue].
 
-[createuser]: https://mariadb.com/kb/en/library/create-user
-[username]: https://mariadb.com/kb/en/library/create-user/#user-name-component
-[hostname]: https://mariadb.com/kb/en/library/create-user/#host-name-component
-[grant]: https://mariadb.com/kb/en/library/grant
+[createuser]: https://mariadb.com/kb/en/create-user/
+[username]: https://mariadb.com/kb/en/create-user/#user-name-component
+[hostname]: https://mariadb.com/kb/en/create-user/#host-name-component
+[grant]: https://mariadb.com/kb/en/grant/
+[migration-issues]: https://github.com/home-assistant/core/issues/125339
 [mariadb-ha-recorder]: https://www.home-assistant.io/integrations/recorder/
 [discord]: https://discord.gg/c5DvZ4e
 [forum]: https://community.home-assistant.io
 [i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
-[issue]: https://github.com/home-assistant/hassio-addons/issues
+[issue]: https://github.com/home-assistant/addons/issues
 [reddit]: https://reddit.com/r/homeassistant
 [repository]: https://github.com/hassio-addons/repository
