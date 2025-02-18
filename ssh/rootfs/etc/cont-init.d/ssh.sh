@@ -1,12 +1,29 @@
 #!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
 # ==============================================================================
 # SSH setup & user
 # ==============================================================================
+
+# Sets up the users .ssh folder to be persistent
+if ! bashio::fs.directory_exists /data/.ssh; then
+    mkdir -p /data/.ssh \
+        || bashio::exit.nok 'Failed to create a persistent .ssh folder'
+
+fi
+chmod 700 /data/.ssh \
+    || bashio::exit.nok \
+        'Failed setting permissions on persistent .ssh folder'
+
+# Make Home Assistant TOKEN available for non-interactive SSH commands
+bashio::var.json \
+    supervisor_token "${SUPERVISOR_TOKEN}" \
+    | tempio \
+        -template /usr/share/tempio/ssh.environment \
+        -out /data/.ssh/environment
+
 if bashio::config.has_value 'authorized_keys'; then
     bashio::log.info "Setup authorized_keys"
 
-    mkdir -p /data/.ssh
-    chmod 700 /data/.ssh
     rm -f /data/.ssh/authorized_keys
     while read -r line; do
         echo "$line" >> /data/.ssh/authorized_keys
@@ -32,3 +49,4 @@ tempio \
     -conf /data/options.json \
     -template /usr/share/tempio/sshd_config \
     -out /etc/ssh/sshd_config
+

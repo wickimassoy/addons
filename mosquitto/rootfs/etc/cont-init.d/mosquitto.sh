@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
 # ==============================================================================
 # Configures mosquitto
 # ==============================================================================
@@ -49,7 +50,12 @@ for login in $(bashio::config 'logins|keys'); do
   password=$(bashio::config "logins[${login}].password")
 
   bashio::log.info "Setting up user ${username}"
-  password=$(pw -p "${password}")
+  if ! bashio::config.true "logins[${login}].password_pre_hashed"
+  then
+      password=$(pw -p "${password}")
+  else
+      bashio::log.info "Using pre-hashed password for ${username}"
+  fi
   echo "${username}:${password}" >> "${PW}"
   echo "user ${username}" >> "${ACL}"
 done

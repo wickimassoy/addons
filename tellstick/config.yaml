@@ -1,9 +1,9 @@
 ---
-version: 2.1.0
+version: 2.2.0
 slug: tellstick
 name: TellStick
 description: TellStick and TellStick Duo service
-url: https://github.com/home-assistant/hassio-addons/tree/master/tellstick
+url: https://github.com/home-assistant/addons/tree/master/tellstick
 arch:
   - armhf
   - armv7
@@ -41,3 +41,5 @@ schema:
 startup: system
 stdin: true
 usb: true
+init: false
+stage: deprecated

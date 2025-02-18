@@ -1,5 +1,55 @@
 # Changelog
 
+## 7.0.0
+
+- Bump deCONZ to 2.28.1
+- Use debian bookworm for all arch types
+- Use dwm instead of wmii as window manager
+
+## 6.23.0
+
+- Bump deCONZ to 2.25.3
+
+## 6.22.0
+
+- Revert deCONZ to 2.22.2 due to a Phoscon bug: https://forum.phoscon.de/t/phoscon-de-pwa-login-html-does-not-work-anymore/3967
+
+## 6.21.0
+
+- Bump deCONZ to 2.23.1
+
+## 6.20.0
+
+- Bump deCONZ to 2.22.2
+
+## 6.19.0
+
+- Bump deCONZ to 2.21.2
+
+## 6.18.0
+
+- Bump deCONZ to 2.20.1
+
+## 6.17.1
+
+- Bump deCONZ to 2.19.3
+
+## 6.17.0
+
+- Bump deCONZ to 2.19.1
+
+## 6.16.0
+
+- Bump deCONZ to 2.18.2
+
+## 6.15.0
+
+- Bump deCONZ to 2.17.1
+
+## 6.14.2
+
+- Fix finish script for S6 V3
+
 ## 6.14.1
 
 - Version bump to fix S6 service permissions

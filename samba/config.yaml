@@ -1,9 +1,9 @@
 ---
-version: 9.7.0
+version: 12.4.0
 slug: samba
 name: Samba share
 description: Expose Home Assistant folders with SMB/CIFS
-url: https://github.com/home-assistant/hassio-addons/tree/master/samba
+url: https://github.com/home-assistant/addons/tree/master/samba
 codenotary: notary@home-assistant.io
 arch:
   - armhf
@@ -16,16 +16,25 @@ host_network: true
 image: homeassistant/{arch}-addon-samba
 init: false
 map:
-  - config:rw
-  - ssl:rw
   - addons:rw
-  - share:rw
+  - all_addon_configs:rw
   - backup:rw
+  - homeassistant_config:rw
   - media:rw
+  - share:rw
+  - ssl:rw
 options:
   username: homeassistant
   password: null
   workgroup: WORKGROUP
+  enabled_shares:
+    - addons
+    - addon_configs
+    - backup
+    - config
+    - media
+    - share
+    - ssl
   compatibility_mode: false
   veto_files:
     - ._*
@@ -37,11 +46,15 @@ options:
     - 10.0.0.0/8
     - 172.16.0.0/12
     - 192.168.0.0/16
+    - 169.254.0.0/16
     - fe80::/10
+    - fc00::/7
 schema:
   username: str
   password: password
   workgroup: str
+  enabled_shares:
+    - "match(^(?i:(addons|addon_configs|backup|config|media|share|ssl))$)"
   compatibility_mode: bool
   veto_files:
     - str

@@ -1,5 +1,41 @@
 # Changelog
 
+## 6.5.0
+
+- Update base image to Debian 12 (bookworm)
+- Update mosquitto to version 2.0.20
+- Update mosquitto-go-auth to version 2.1.0
+- Update libwebsockets to version 4.3.3
+
+## 6.4.1
+
+- Increase default max_queued_messages to 8192 to fix dropped messages during Home Assistant startup
+
+## 6.4.0
+
+- Update mosquitto to 2.0.18
+
+## 6.3.1
+
+- Add ability to use a pre-hashed password for custom logins
+
+## 6.3.0
+
+- Update mosquitto to 2.0.17
+
+## 6.2.1
+
+- Add explicit dependencies for dynamic security plugin and asynchronous name resolver 
+
+## 6.2.0
+
+- Update mosquitto to 2.0.15
+- Update libwebsockets to 4.3.2 (fixes Unable to create websockets listener)
+
+## 6.1.3
+
+- Change timestamp format in logs
+
 ## 6.1.2
 
 - Add debug option to help with issues

@@ -1,5 +1,78 @@
 # Changelog
 
+## 3.11.1
+
+- Update to new nginx http2 directive. This also suppress a deprecation warning.
+
+## 3.11.0
+
+- Update Alpine Linux to 3.20 (nginx 1.26.x)
+
+## 3.10.1
+
+- Make `real_ip_from` optional through an empty default value
+
+## 3.10.0
+
+- Supporting TCP Proxy Protocol
+
+## 3.9.0
+
+- Add `map_hash_bucket_size` to add support for longer matches in `map`
+
+## 3.8.0
+
+- Update Alpine Linux to 3.19
+
+## 3.7.0
+
+- Modify `server_names_hash_bucket_size` to add support for longer domain names
+
+## 3.6.0
+
+- Add port to Host header to fix origin issues affecting ESPHome and other addons
+
+## 3.5.0
+
+- Update Alpine to 3.18 (nginx 1.24.x)
+
+## 3.4.2
+
+- Decrease crond log level
+
+## 3.4.1
+
+- Avoid logging to system console
+
+## 3.4.0
+
+- Add X-Forwarded-Host to fix origin issues affecting VSCode and other addons
+
+## 3.3.0
+
+- Check certificate renewal daily and reload nginx if necessary
+- Migrate add-on layout to S6 Overlay
+
+## 3.2.0
+
+- Update Alpine to 3.16 (nginx 1.22.x)
+
+## 3.1.5
+
+- Fixed container environment
+
+## 3.1.4
+
+- Fixed init config
+
+## 3.1.3
+
+- Reject SSL on unknown domains instead of responding with an invalid certificate
+
+## 3.1.2
+
+- Fix TLSv1.3 support
+
 ## 3.1.1
 
 - Hide server version banner

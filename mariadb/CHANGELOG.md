@@ -1,5 +1,42 @@
 # Changelog
 
+## 2.7.2
+
+- Add option to configure MariaDB server parameters (see also [home-assistant/addons#3754](https://github.com/home-assistant/addons/issues/3754))
+
+## 2.7.1
+
+**Note:** Restart the add-on before upgrade if the current version is lower
+than 2.7.0! This is to ensure a clean stop right before the update (see also
+https://github.com/home-assistant/addons/issues/3566).
+
+- Increase MariaDB add-on shutdown timeout to 300s
+
+## 2.7.0
+
+- Update to Alpine 3.19
+
+## 2.6.1
+
+- Use proper log redirection during backup
+
+## 2.6.0
+
+- Migrate add-on layout to S6 Overlay
+- Update to MariaDB version 10.6.12
+
+## 2.5.2
+
+- Update to MariaDB version 10.6.10
+
+## 2.5.1
+
+- Remove deprecated `innodb-buffer-pool-instances`
+
+## 2.5.0
+
+- Update alpine to 3.16 and s6 to v3
+
 ## 2.4.0
 
 - Add lock capabilities during snapshot
@@ -13,6 +50,7 @@
 - Update options schema for passwords
 
 ## 2.2.1
+
 - Don't delete the mariadb.sys user, it's needed in MariaDB >= 10.4.13
 
 ## 2.2.0
